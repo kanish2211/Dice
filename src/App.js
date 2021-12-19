@@ -1,24 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import AppTheme from "./Context/Apptheme";
+import Dice from "./Dice";
+
+import "./App.css";
 
 function App() {
+  const themeHook = useState("green");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppTheme.Provider value={themeHook}>
+      <Dice></Dice>
+    </AppTheme.Provider>
   );
 }
 
